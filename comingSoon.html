@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blinking Eyes</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .eyes-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .eye {
+      width: 80px;
+      height: 80px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: relative;
+      margin: 0 20px;
+      animation: blink 4s infinite alternate;
+      animation-play-state: paused; /* Pause animation by default */
+    }
+
+    .eye.left .pupil {
+      width: 40px;
+      height: 40px;
+    }
+
+    .eye.right .pupil {
+      width: 40px;
+      height: 40px;
+      animation: wink 0.6s forwards;
+    }
+
+    .pupil {
+      background-color: #000;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .coming-soon {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        height: 80px;
+      }
+      50% {
+        height: 10px;
+      }
+    }
+
+    @keyframes wink {
+      0%, 100% {
+        transform: scaleY(1);
+      }
+      50% {
+        transform: scaleY(0);
+      }
+    }
+
+/* ------------------------------ */
+
+    .return-home {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #3498db;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+  
+    .return-home:hover {
+      background-color: #383f44;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="eyes-container">
+    <div class="eye left">
+      <div class="pupil"></div>
+    </div>
+    <div class="eye right">
+      <div class="pupil"></div>
+    </div>
+  </div>
+  <div >
+
+  <!-- Add this HTML snippet under the "Coming Soon" text -->
+
+    <p class="coming-soon">Coming Soon</p>
+   <a href="../index.html"><button class="return-home">Return to Home Page</button>
+   </a>
+  
+
+  </div>
+<!-- Add this script tag in the head section of your HTML -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const eyesContainer = document.querySelector('.eyes-container');
+      const rightEye = document.querySelector('.eye.right .pupil');
+      const leftEye = document.querySelector('.eye.left .pupil');
+      const returnHomeButton = document.querySelector('.return-home');
+  
+      let isBlinking = true;
+      let isFollowingMouse = true;
+  
+      document.addEventListener('mousemove', function (event) {
+        if (isFollowingMouse) {
+          const { clientX: mouseX, clientY: mouseY } = event;
+          const { left, top, width, height } = eyesContainer.getBoundingClientRect();
+  
+          const eyeCenterX = left + width / 2;
+          const eyeCenterY = top + height / 2;
+  
+          const deltaX = mouseX - eyeCenterX;
+          const deltaY = mouseY - eyeCenterY;
+          const angle = Math.atan2(deltaY, deltaX);
+          const distance = Math.min(width, height) / 4;
+  
+          const pupilX = eyeCenterX + distance * Math.cos(angle);
+          const pupilY = eyeCenterY + distance * Math.sin(angle);
+  
+          leftEye.style.transform = `translate(-50%, -50%) translate(${pupilX - eyeCenterX}px, ${pupilY - eyeCenterY}px)`;
+          rightEye.style.transform = `translate(-50%, -50%) translate(${pupilX - eyeCenterX}px, ${pupilY - eyeCenterY}px)`;
+        }
+      });
+  
+      document.addEventListener('click', function () {
+        if (isBlinking) {
+          rightEye.style.animation = 'wink 0.6s forwards';
+          setTimeout(() => {
+            rightEye.style.animation = 'none';
+          }, 600);
+        }
+      });
+  
+      returnHomeButton.addEventListener('click', function () {
+        isFollowingMouse = true;
+      });
+    });
+  </script>
+</body>
+</html>
