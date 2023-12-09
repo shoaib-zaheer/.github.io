@@ -22,7 +22,7 @@ a {
 #columns {
   display: flex;
   height: 100%;
-  max-width: 1920px; /*size of the page continer can be fix here*/
+  max-width: 1500px; /*size of the page continer can be fix here*/
   width: 100%;
 }
 
