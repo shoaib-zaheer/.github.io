@@ -15,14 +15,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-HJ1EUKpZkzBNtWyJ81MdZmnHd1U4HigcWCpRN4Cg6FD/3p2OPI7l/gd6W3Ozqwo" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <link rel="stylesheet" href="../codesCssJava_WEB/style.css">
   
 </head>
 <body>
     <div id="columns">
         <div id="left-column">
-          <a href="./index.html" onclick="openPage('Shoaib_zaheer')" class="a_decoration"><h3>Shoaib Zaheer</h3></a>
-          <a href="./comingSoon.html" onclick="openPage('Animation')" class="a_decoration">Animation</a>
+          <a href="../index.html" onclick="openPage('Shoaib_zaheer')" class="a_decoration"><h3>Shoaib Zaheer</h3></a>
+          <a href="./index-animi.html" onclick="openPage('Animation')" class="a_decoration">Animation</a>
           <a href="./comingSoon.html" onclick="openPage('Computer Graphic')" class="a_decoration">Computer graphic</a>
           <a href="./ContimWork_WEB/index_CoW.html" onclick="openPage('Contemporary Art')" class="a_decoration">Contemporary art</a>
           <a href="./DrawWork_WEB/index_Dr.html" onclick="openPage('Drawings')" class="a_decoration">Drawings</a>
@@ -41,7 +42,7 @@
           </div>
         </div>
         <div id="right-column">
-            <h3>About</h3>
+            <h3>Animation Videos</h3>
             <div id="content">
               <!-- Writing text here-->
                 <p id="mainText">
@@ -58,48 +59,78 @@
                 <a href="#" id="readMoreLink" style="text-decoration: none; color: #575151;">Read More</a>
                 &nbsp; &nbsp; <br> <br><a href="#" id="readLessLink" style="display: none; text-decoration: none; color: #575151;">Read Less</a> -->
               </p>
+
               <!-- Videos can be add here -->
-                <div class="video-gallery">
-                  <div class="featured-video">
-                    <h4>Featured Video</h4>
-                    <div class="video-card">
-                      <img src="./animImages/hoursThumbnail.jpeg" style="width: 100%;" alt="">
-                      <h5>title for video-0</h5>
-
-                      <img class = "play-icon" src="./animImages/playButton.png" alt="">
-                    </div>
-                 </div>  
-                  <div class="related-videos">
-                    
-                    <div class="video-card">
-                      <div class="thumbnail">
-                        <img src="./animImages/hoursThumbnail.jpeg"style="width: 100%;" alt=""> <!-- thumbnail can bechagen here -->
-                        <img class = "play-icon" src="./animImages/playButton.png" alt="">
-                      </div>
-                      <h5>title for video-1</h5>
-                    </div>
-
-                    <div class="video-card">
-                      
-                      <div class="thumbnail">
-                        <img src="./animImages/hoursThumbnail.jpeg" style="width: 100%;" alt=""> <!-- thumbnail can bechagen here -->
-                        <img class = "play-icon" src="./animImages/playButton.png" alt="">
-                      </div>
-                      <h5>title for video-2</h5>
-                    </div>
-
-                    <div class="video-card">
-                      
-                      <div class="thumbnail">
-                        <img src="./animImages/hoursThumbnail.jpeg" style="width: 100%;" alt=""> <!-- thumbnail can bechagen here -->
-                        <img class = "play-icon" src="./animImages/playButton.png"alt="">
-                      </div>
-                      <h5>title for video-3</h5>
-                    </div>
-                    
+              <div class="video-gallery">
+                <div class="featured-video">
+                  <!-- <h4>Featured Video</h4> -->
+                  <div class="video-card">
+                    <iframe class="video-player" 
+                      width="560" 
+                      height="315" 
+                      src="https://www.youtube.com/embed/?" 
+                      frameborder="0" 
+                      allowfullscreen>
+                    </iframe>
+                    <h4 class="video-title">The Survival</h4>
                   </div>
                 </div>
+              
+                <h3 class="other-videos-title">Other Videos</h3>
+                <div class="related-videos">
+              
+                  <div class="video-card">
+                    <div class="thumbnail" data-id="aj5ia0xaGDo" data-title="Title for video-1">
+                      <img src="./animImages/hoursThumbnail.jpeg" style="width: 100%;" alt="">
+                      <img class="play-icon" src="./animImages/playButton.png" style="" alt="">
+                    </div>
+                    <h6>The Birth - survival video-1</h6>
+                  </div>
+              
+                  <div class="video-card">
+                    <div class="thumbnail" data-id="52C5-e-LSVM" data-title="Title for video-2">
+                      <img src="./animImages/hoursThumbnail.jpeg" style="width: 100%;" alt="">
+                      <img class="play-icon" src="./animImages/playButton.png" alt="">
+                    </div>
+                    <h6>Stand - Survival video-2</h6>
+                  </div>
+              
+                  <div class="video-card">
+                    <div class="thumbnail" data-id="gO3ax2ODL0s" data-title="Title for video-3">
+                      <img src="./animImages/hoursThumbnail.jpeg" style="width: 100%;" alt="">
+                      <img class="play-icon" src="./animImages/playButton.png" alt="">
+                    </div>
+                    <h6>Knowledge and experience - Survival video-3</h6>
+                  </div>
+              
+                  <div class="video-card">
+                    <div class="thumbnail" data-id="DM4IH62u7IA" data-title="Title for video-4">
+                      <img src="./animImages/hoursThumbnail.jpeg" style="width: 100%;" alt="">
+                      <img class="play-icon" src="./animImages/playButton.png" alt="">
+                    </div>
+                    <h6>Root - Survival video-4</h6>
+                  </div>
 
+                  <div class="video-card">
+                    <div class="thumbnail" data-id="JJudUessNEU" data-title="The stand alone -5">
+                      <img src="./animImages/hoursThumbnail.jpeg" style="width: 100%;" alt="">
+                      <img class="play-icon" src="./animImages/playButton.png" alt="">
+                    </div>
+                    <h6>Escape - Survival video-5</h6>
+                  </div>
+
+                  <div class="video-card">
+                    <div class="thumbnail" data-id="82z2SH0PUNo" data-title="Title for video-6">
+                      <img src="./animImages/hoursThumbnail.jpeg" style="width: 100%;" alt="">
+                      <img class="play-icon" src="./animImages/playButton.png" alt="">
+                    </div>
+                    <h5>Stand alone - Survival video-6</h5>
+                  </div>
+
+
+                </div>
+              </div>
+              
 
           </div>
         </div>
@@ -109,5 +140,6 @@
   <script src="../codesCssJava_WEB/showtext.js"></script>
   <script src="../codesCssJava_WEB/javascript.js"></script>
   <script src="../codesCssJava_WEB/javascript2.js"></script>
+  <script src="../codesCssJava_WEB/videoMain.js"></script>
 </body>
 </html>
