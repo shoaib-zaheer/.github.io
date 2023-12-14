@@ -95,41 +95,41 @@ a:hover {
 
 /* Media queries for different screen sizes */
 @media (max-width: 640px) {
-  #content img {
+  #content img :not(.play-icon) {
     width: 100%;
   }
 }
 
 @media (max-width: 360px) {
-  #content img {
+  #content img:not(.play-icon) {
     width: 100%;
     height: auto;
   }
 }
 
 @media (min-width: 361px) and (max-width: 414px) {
-  #content img {
+  #content img :not(.play-icon) {
     width: 100%;
     height: auto;
   }
 }
 
 @media (min-width: 415px) and (max-width: 360px) {
-  #content img {
+  #content img:not(.play-icon) {
     width: 100%;
     height: auto;
   }
 }
 
 @media (min-width: 361px) and (max-width: 412px) {
-  #content img {
+  #content img:not(.play-icon) {
     width: 100%;
     height: auto;
   }
 }
 
 @media (min-width: 413px) and (max-width: 390px) {
-  #content img {
+  #content img :not(.play-icon) {
     width: 100%;
     height: auto;
   }
@@ -230,44 +230,6 @@ h1 {
   background-color: #333;
   color: #fff;
 }
-/*numbers and links in page to toggle in between numbers next and preview*/
-
-
-/* .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-}
-
-.pagination li {
-  margin: 0 5px;
-  padding: 20px 0px 50px 0px;
-}
-
-.pagination a, .pagination span {
-  display: inline-block;
-  padding: 8px 12px;
-  text-decoration: none;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.pagination a:hover {
-  background-color: #ddd;
-}
-
-.pagination .current {
-  background-color: #524d4d;
-  color: #fff;
-  border: 1px solid #6c5d5d;
-}
-
-.hidden {
-  display: none !important;
-} */
 
 /*image showcase*/
 
@@ -304,26 +266,6 @@ img {
   max-width: 100%;
   vertical-align: middle;
 }
-/* .template {
-  transition: all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  opacity: 0;
-  position: relative;
-  background: #707070;
-}
-
-.template p {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 1px;
-  margin: 0;
-  width: 100%;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
-  padding: 25px 10px 10px 10px; 
-}*/
 
 .template.animate {
   transform: scale(1);
@@ -393,25 +335,23 @@ img {
 }
 /* video files are added from header */
 
-.video-gallery{
+.video-gallery {
   width: 600px;
   padding: 0 32px;
   margin: 0 auto;
   box-sizing: border-box;
+  padding-top: 50px; /* Fix the typo here */
 }
 
-.video-gallery{
+.video-gallery img {
   width: 100%;
 }
-.video-gallery h4{
-  font-size: 40px;
-  font-weight: 800;
-  margin: 0;
-  padding: 16px 0;
-  color: red;
+
+.video-gallery h3.other-videos-title {
+  display: none;
 }
 
-.video-gallery .featured-video .video-card{
+.video-gallery .featured-video .video-card {
   position: relative;
 }
 
@@ -425,13 +365,13 @@ img {
 
 .video-gallery .related-videos {
   display: flex;
+  flex-wrap: wrap; /* Added to allow videos to wrap onto the next line */
   gap: 8px;
   margin-top: 24px;
 }
 
 .video-gallery .related-videos .thumbnail {
   position: relative;
-  
 }
 
 .video-gallery .related-videos .thumbnail .play-icon {
@@ -439,5 +379,47 @@ img {
   top: 50%;
   left: 50%;
   width: 40px;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
+}
+
+.video-gallery .related-videos .video-card {
+  flex: 1 0 calc(33.33% - 8px); /* Updated to limit to three videos in one row */
+  max-width: 200px; /* Added max-width to ensure consistency */
+  padding: 0 4px 8px 0; /* Added some bottom padding */
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  background-image: linear-gradient(135deg, #727374 10%, #bcc3c4 100%);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .video-gallery {
+    width: 100%;
+    padding: 0px 16px;
+  }
+
+  .video-gallery .related-videos .video-card {
+    flex: 1 0 100%; /* Take full width on smaller devices */
+    max-width: none; /* Remove max-width on smaller devices */
+  }
+}
+
+@media (max-width: 550px) {
+  .video-gallery .related-videos {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .video-gallery .related-videos .video-card {
+    margin: 8px 0;
+  }
+
+  .video-gallery h3.other-videos-title {
+    display: block;
+    margin-top: 32px;
+  }
 }
