@@ -423,3 +423,72 @@ img {
     margin-top: 32px;
   }
 }
+
+  /* alinesitic page css codes */
+  
+  .qrCode {
+    position: relative;
+    padding-top: 20px;
+    width: 50%;
+    margin: 0 auto;
+    height: auto; /* Set a fixed height for demonstration purposes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .qrCode .img_top,
+  .qrCode .img_bottom {
+    display: block;
+    border: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    width: 90%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .qrCode .img_bottom {
+    opacity: 0;
+    animation: rotateBottom 5s linear infinite; /* Rotate animation */
+  }
+  
+  .qrCode:hover .img_top {
+    opacity: 0;
+  }
+  
+  .qrCode:hover .img_bottom {
+    opacity: 1;
+    transition: opacity 3s ease-in-out;
+  }
+  
+  @keyframes rotateBottom {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
+  .qrCode .scan_me {
+    position: absolute;
+    top: 100%; /* Set the top property to 100% to position it at the bottom */
+  }
+  
+  /* Style the h1 and h2 elements as needed */
+  .qrCode .scan_me h1{
+    margin: 0;
+    font-size: 30px;
+  }
+  
+  .qrCode .scan_me h2 {
+    margin: 0;
+    font-size: 25px;
+  }
