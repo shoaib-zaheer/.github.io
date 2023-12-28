@@ -68,6 +68,7 @@ a:hover {
 .social-icons {
   margin-top: 10px;
   display: inline-block; /*social media icons inline*/
+  padding-top: 30px;
 }
 
 /*add space between social icons*/
