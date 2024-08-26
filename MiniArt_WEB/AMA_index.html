@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="art, contemporary art, animation, drawing, painting, CG, computer graphic, "> <!-- add keywords -->
+  <meta name="description" content="A concise and informative description of your page content.">
+  <link rel="canonical" href="https://shoaib-zaheer.github.io/">
+  <meta property="og:title" content="contemporary art">
+  <meta property="og:description" content="A concise and informative description of your page content.">
+  <meta property="og:image" content="URL_to_your_featured_image.jpg">
+  <meta property="og:url" content="https://shoaib-zaheer.github.io/">
+  <meta name="robots" content="index, follow">
+  <title>Shoaib Zaheer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-HJ1EUKpZkzBNtWyJ81MdZmnHd1U4HigcWCpRN4Cg6FD/3p2OPI7l/gd6W3Ozqwo" crossorigin="anonymous">
+  <link rel="stylesheet" href="../codesCssJava_WEB/style.css">
+  
+</head>
+<body>
+    <div id="columns">
+        <div id="left-column">
+          <a href="../index.html" onclick="openPage('Shoaib Zaheer')" class="a_decoration"><h3>Shoaib Zaheer</h3></a>
+          <a href="../MiniArt_WEB/AMA_index.html" onclick="openPage('Afghan miniature art')" class="a_decoration">Afghan miniature art</a><br>
+          <!-- Social Media Icons -->
+          <div class="social-icons">
+            <a href="https://t.me/Eternity_KBL" class="text-dark" target="_blank"><i class="fa fa-telegram fa-lg"></i></a>
+            <a href="https://www.facebook.com/shoaibartt" class="text-dark" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
+            <a href="https://www.instagram.com/shoaibartt/" class="text-dark" target="_blank"><i class="fa fa-instagram fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/shoaib-zaheer-8886901b5/" class="text-dark" target="_blank"><i class="fa fa-linkedin fa-lg" ></i></a>
+            <a href="https://www.youtube.com/channel/UCstXD_Q9VO5bgXpRZcI4rbg" class="text-dark" target="_blank"><i class="fa fa-youtube-play fa-lg"></i></a>
+            <a href="https://github.com/shoaib-zaheer" class="text-dark" target="_blank"><i class="fa fa-github fa-lg"></i></a>
+            <a href="https://www.deviantart.com/shoaib-moswer" class="text-dark" target="_blank"><i class="fa fa-deviantart fa-lg"></i></a>
+          </div>
+        </div>
+        <div id="right-column">
+          <!-- <h3>About</h3> -->
+          <div id="content">
+            <!-- Writing text here-->
+              <p id="mainText">
+                <!-- The world often resembles an arena for adult politics,
+                <br><br>
+                <span id="additionalText">
+                  The emergence of watercolor as an art form did not unfold in an instant. 
+                  <br><br>
+                  
+                </span> -->
+
+              <!-- <a href="#" id="readMoreLink" style="text-decoration: none; color: #575151;">Read More</a>
+              &nbsp; &nbsp; <br> <br><a href="#" id="readLessLink" style="display: none; text-decoration: none; color: #575151;">Read Less</a> -->
+            </p>
+            <!--Images can be add here-->
+            <img src="" alt="">
+        </div>
+
+        <div class="gallery">
+          <main id="image-gallery" class="images"></main>
+          <footer id="gallery-pagination">
+            <button id="btnPrevious">&larr; <span class="sr-only">Previous</span></button>
+            <div>
+              <div id="gallery-dots"></div>
+              <span id="page"></span>
+            </div>
+            <button id="btnNext"><span class="sr-only">Next </span>&rarr;</button>
+          </footer>
+      </div>
+
+      </div>
+    </div>
+
+  <!-- Adding Java Script files-->
+  <script src="../codesCssJava_WEB/showtext.js"></script>
+  <script src="../codesCssJava_WEB/javascript.js"></script>
+  <script src="../codesCssJava_WEB/javascript2.js"></script>
+
+  <script>
+
+    var previous = document.getElementById('btnPrevious');
+    var next = document.getElementById('btnNext');
+    var gallery = document.getElementById('image-gallery');
+    var pageIndicator = document.getElementById('page');
+    var galleryDots = document.getElementById('gallery-dots');
+
+    var images = [];
+    for (var i = 1; i >= 0; i--) {
+        images.push({
+            title: "Image " + (i + 1),
+            source: "./miniArt_img/minitArt_image" + i + ".jpg",
+        });
+    }
+
+    var perPage = 9;
+    var page = 1;
+    var pages = Math.ceil(images.length / perPage);
+
+    // Gallery dots
+    for (var i = 0; i < pages; i++) {
+        var dot = document.createElement('button');
+        var dotSpan = document.createElement('span');
+        var dotNumber = document.createTextNode(i + 1);
+
+        dot.classList.add('gallery-dot');
+        dot.setAttribute('data-index', i);
+        dotSpan.classList.add('sr-only');
+
+        dot.appendChild(dotSpan);
+        dot.appendChild(dotNumber);
+
+        dot.addEventListener('click', function (e) {
+            var self = e.target;
+            goToPage(self.getAttribute('data-index'));
+        });
+
+        galleryDots.appendChild(dot);
+    }
+
+    // Previous Button
+    previous.addEventListener('click', function () {
+        if (page === 1) {
+            page = 1;
+        } else {
+            page--;
+            showImages();
+        }
+    });
+
+    // Next Button
+    next.addEventListener('click', function () {
+        if (page < pages) {
+            page++;
+            showImages();
+        }
+    });
+
+    // Jump to page
+    function goToPage(index) {
+        index = parseInt(index);
+        page = index + 1;
+        showImages();
+    }
+
+    // Load images
+    function showImages() {
+        while (gallery.firstChild) gallery.removeChild(gallery.firstChild);
+
+        var offset = (page - 1) * perPage;
+        var dots = document.querySelectorAll('.gallery-dot');
+
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].classList.remove('active');
+        }
+
+        dots[page - 1].classList.add('active');
+
+        for (var i = offset; i < offset + perPage; i++) {
+            if (images[i]) {
+                var template = document.createElement('div');
+                var img = document.createElement('img');
+
+                template.classList.add('template');
+
+                // Set a fixed width of 600px with auto height
+                img.setAttribute('src', images[i].source);
+                img.setAttribute('alt', images[i].title);
+                img.style.width = '500px';
+                img.style.height = 'auto';
+
+                template.appendChild(img);
+                gallery.appendChild(template);
+            }
+        }
+
+        // Animate images
+        var galleryItems = document.querySelectorAll('.template');
+        for (var i = 0; i < galleryItems.length; i++) {
+            var onAnimateItemIn = animateItemIn(i);
+            setTimeout(onAnimateItemIn, i * 100);
+        }
+
+        function animateItemIn(i) {
+            var item = galleryItems[i];
+            return function () {
+                item.classList.add('animate');
+            };
+        }
+
+        // Update page indicator
+        pageIndicator.textContent = "Page " + page + " of " + pages;
+    }
+
+    showImages();
+  </script>
+
+</body>
+</html>
