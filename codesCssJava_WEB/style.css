@@ -540,3 +540,17 @@ img {
     font-size: 25px;
   }
 /* animatoin button code start here */
+
+#image {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+}
+.image-item {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 10px; /* Space between images */
+}
