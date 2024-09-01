@@ -57,8 +57,14 @@
                   <br>
                   December, 2019, <strong>Surviving</strong>, <em>Zwarte Zaal</em>, ODC Art Lab, Gent, Belgium.
                   <br>
-                  October, 2018. <strong>Migrations</strong>, <em>Arret 59, Foyer Culturel</em> Peruwelz, Belgium.
-                  <br>
+                  October, 2018. 
+                  <a href="#" onpointerenter="showImage(['expoPics/migrition_img2.jpg'])" 
+                  onpointerleave="hideImage()"
+                  style="display: inline;" 
+                  class="no-hover-effect">
+                  <strong>Migrations</strong></a>, 
+                  <em>Arret 59, Foyer Culturel</em> Peruwelz, Belgium.
+                  <br> 
                   April, 2018, <strong>Close Eyes</strong>, <em>Auction</em>, Peace of Art, Brussels, Belgium.
                   <br>
                   <!-- 2018, <strong></strong>, <em></em>, Tournai, Belgium.
@@ -66,11 +72,22 @@
           </div>
         </div>
       </div>
-
+      <div id="image"></div>
+            <!-- Album Modal Container -->
+      <div id="albumModal">
+        <div class="album-content">
+            <button class="nav-button close-button" onclick="closeAlbum()">&#10005;</button>
+            <button class="nav-button prev-button" onclick="prevImage(event)">&#10094;</button>
+            <img id="albumImage" class="album-image" src="" alt="Album Image">
+            <button class="nav-button next-button" onclick="nextImage(event)">&#10095;</button>
+            <!-- Thumbnails preview -->
+            <div id="thumbnailPreview"></div>
+        </div>
+      </div>
   <!-- Adding Java Script files-->
   <script src="../codesCssJava_WEB/showtext.js"></script>
   <script src="../codesCssJava_WEB/javascript.js"></script>
-  <script src="../codesCssJava_WEB/javascript2.js"></script>
-  <script src="../codesCssJava_WEB/imgScript.js"></script>
+  <script src="../codesCssJava_WEB/javascript2.js"></script>  <!--not copy text -->
+   <script src="../codesCssJava_WEB/exhiShowImg.js"></script>
 </body>
 </html>
