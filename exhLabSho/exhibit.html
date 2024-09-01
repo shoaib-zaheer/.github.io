@@ -17,144 +17,144 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-HJ1EUKpZkzBNtWyJ81MdZmnHd1U4HigcWCpRN4Cg6FD/3p2OPI7l/gd6W3Ozqwo" crossorigin="anonymous">
   <link rel="stylesheet" href="../codesCssJava_WEB/style.css">
   <style>
-    /* Hover Image Preview Styles */
-    #image {
-        position: absolute;
-        display: none;
-        pointer-events: none;
-    }
+            /* Hover Image Preview Styles */
+            #image {
+                position: absolute;
+                display: none;
+                pointer-events: none;
+            }
 
-    .image-item {
-        width: 500px;
-        height: 500px;
-        /* background-color: aqua; */
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin-bottom: 10px; /* Space between images */
-    }
+            .image-item {
+                width: 500px;
+                height: 300px;
+                /* background-color: aqua; */
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-bottom: 5px; /* Space between images */
+            }
 
-    /* Album Modal Styles */
-    #albumModal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 1000;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
+            /* Album Modal Styles */
+            #albumModal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 1000;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
 
-    /* Album Content */
-    .album-content {
-        position: relative;
-        max-width: 100%;
-        max-height: 100%;
-        display: flex;
-        flex-direction: column; /*thumbails appear below the image*/
-        align-items: center;
-        /* justify-content: center; */
-        background-color: rgb(48, 39, 39);
-        padding: 20px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
+            /* Album Content */
+            .album-content {
+                position: relative;
+                max-width: 100%;
+                max-height: 100%;
+                display: flex;
+                flex-direction: column; /*thumbails appear below the image*/
+                align-items: center;
+                /* justify-content: center; */
+                background-color: rgb(48, 39, 39);
+                padding: 20px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            }
 
-    .album-image {
-        max-width: 90%;
-        max-height: 80vh;
-    }
+            .album-image {
+                max-width: 90%;
+                max-height: 80vh;
+            }
 
-    /* Navigation Buttons */
-    .nav-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(125, 101, 101, 0.7);
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 18px;
-        z-index: 1001;
-    }
+            /* Navigation Buttons */
+            .nav-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(125, 101, 101, 0.7);
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 18px;
+                z-index: 1001;
+            }
 
-    .prev-button {
-        left: 20px;
-    }
+            .prev-button {
+                left: 20px;
+            }
 
-    .next-button {
-        right: 20px;
-    }
+            .next-button {
+                right: 20px;
+            }
 
-    .close-button{
-        top: 20px;
-        right: 20px;
-        transform: none; /*prevent interference with vertical centering*/
-    }
+            .close-button{
+                top: 20px;
+                right: 20px;
+                transform: none; /*prevent interference with vertical centering*/
+            }
 
-    /* Background Blur (applies to everything except the album) */
-    .blur-background *:not(#albumModal):not(#albumModal *) {
-        filter: blur(5px);
-    }
-    /* Avoid blur on album content */
-    .no-blur {
-        filter: none !important;
-    }
-    /* Thumbnail Preview at the Bottom of the Album */
-    #thumbnailPreview {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    }
+            /* Background Blur (applies to everything except the album) */
+            .blur-background *:not(#albumModal):not(#albumModal *) {
+                filter: blur(5px);
+            }
+            /* Avoid blur on album content */
+            .no-blur {
+                filter: none !important;
+            }
+            /* Thumbnail Preview at the Bottom of the Album */
+            #thumbnailPreview {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            }
 
-.thumbnail {
-    width: 50px;
-    height: 50px;
-    margin: 0 5px;
-    cursor: pointer;
-    border: 2px solid rgb(94, 94, 94);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    background-size: cover;
-    background-repeat: no-repeat;
-    }
+        .thumbnail {
+            width: 50px;
+            height: 50px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 2px solid rgb(94, 94, 94);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            background-size: cover;
+            background-repeat: no-repeat;
+            }
 
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-.album-content {
-    padding: 10px;
-}
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+        .album-content {
+            padding: 10px;
+        }
 
-.album-image {
-    max-width: 100%;
-    max-height: 70vh;
-}
+        .album-image {
+            max-width: 100%;
+            max-height: 70vh;
+        }
 
-.thumbnail {
-    width: 40px;
-    height: 40px;
-}
+        .thumbnail {
+            width: 40px;
+            height: 40px;
+        }
 
-.nav-button {
-    padding: 8px;
-    font-size: 16px;
-}
+        .nav-button {
+            padding: 8px;
+            font-size: 16px;
+        }
 
-.prev-button {
-    left: 10px;
-}
+        .prev-button {
+            left: 10px;
+        }
 
-.next-button {
-    right: 10px;
-}
+        .next-button {
+            right: 10px;
+        }
 
-.close-button {
-    top: 10px;
-    right: 10px;
-}
-}
+        .close-button {
+            top: 10px;
+            right: 10px;
+        }
+        }
 
 </style>
 </head>
@@ -191,18 +191,25 @@
                   <br>
                   Jun, 2024, <strong>Jury-Day</strong>, <em>KASK Conservatorium</em>, Gent, Belgium.
                   <br>
-                  Jun, 2023, <strong>We warm the species</strong>, B3-Media Art Exhibition,<em> De Vooruit/ Viernulvier</em>, Gent, Belgium.
+                  Jun, 2023, 
+                  <a href="#" onpointerenter="showImage(['expoPics/migrition_img2.jpg'])" 
+                  onpointerleave="hideImage()"
+                  style="display: inline;" 
+                  class="no-hover-effect">
+                  <strong>We warm the species</strong></a>
+                  , B3-Media Art Exhibition,<em> De Vooruit/ Viernulvier</em>, Gent, Belgium.
                   <br>
                   Jun, 2020, <strong>Master's Graduation</strong>, <em>KASK Conservatorium</em>, Gent, Belgium.
                   <br>
                   December, 2019, <strong>Surviving</strong>, <em>Zwarte Zaal</em>, ODC Art Lab, Gent, Belgium.
                   <br>
-                  October, 2018. 
-                  <a href="#" onpointerenter="showImage(['expoPics/migrition_img2.jpg'])" 
+                  October, 2018.
+                  <a href="#" onpointerenter="showImage(['expoPics/image0.jpg'])" 
                   onpointerleave="hideImage()"
+                  onclick="openAlbum(['expoPics/image0.jpg', 'expoPics/image1.jpg','expoPics/image2.jpg'])"
                   style="display: inline;" 
-                  class="no-hover-effect">
-                  <strong>Migrations</strong></a>, 
+                  class="no-hover-effect"
+                  ><strong>Migrations</strong></a>, 
                   <em>Arret 59, Foyer Culturel</em> Peruwelz, Belgium.
                   <br> 
                   April, 2018, <strong>Close Eyes</strong>, <em>Auction</em>, Peace of Art, Brussels, Belgium.
@@ -236,7 +243,7 @@ let currentImageIndex = 0;
 let albumImages = [];
 
 const followMouse = (event) => {
-    const offset = 10; // Adjust this as needed
+    const offset = 20; // Adjust this as needed
     imageContainer.style.left = event.pageX + offset + "px";
     imageContainer.style.top = event.pageY + offset + "px";
 };
