@@ -580,7 +580,7 @@ img {
     flex-direction: column; /*thumbails appear below the image*/
     align-items: center;
     /* justify-content: center; */
-    background-color: rgb(48, 39, 39);
+    background-color: rgba(9, 9, 9, 0.342);
     padding: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
