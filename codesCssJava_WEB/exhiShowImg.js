@@ -5,7 +5,7 @@ let currentImageIndex = 0;
 let albumImages = [];
 
 const followMouse = (event) => {
-    const offset = 20; // Adjust this as needed
+    const offset = 10; // Adjust this as needed
     imageContainer.style.left = event.pageX + offset + "px";
     imageContainer.style.top = event.pageY + offset + "px";
 };
@@ -39,6 +39,7 @@ function openAlbum(images) {
     currentImageIndex = 0; // Ensure the album starts from the first image
     displayCurrentImage();
     updateThumbnailPreview();
+    updateButtonVisibility(); // Update the visibility of navigation buttons
     
     albumModal.style.display = 'flex';
     document.body.classList.add('blur-background');
@@ -94,11 +95,10 @@ function updateButtonVisibility() {
     const nextButton = document.querySelector('.next-button');
     const prevButton = document.querySelector('.prev-button');
     
+    // Show/hide buttons based on current image index
     nextButton.style.display = currentImageIndex === albumImages.length - 1 ? 'none' : 'block';
     prevButton.style.display = currentImageIndex === 0 ? 'none' : 'block';
 }
-
-
 
 // let attached = false;
 // let imageContainer = document.querySelector("#image");
