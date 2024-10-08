@@ -23,8 +23,9 @@
         <div id="left-column">
           <a href="../../index.html" onclick="openPage('Shoaib_zaheer')" class="a_decoration"><h3>Shoaib Zaheer</h3></a>
           <a href="../index_cg.html" onclick="openPage('Computer Graphic')" class="a_decoration">Computer graphic</a>
-          <a href="./CG_drawing.html" onclick="openPage('Charcoal drawing')" class="a_decoration">CG drawing</a><br>
-          <a href="../cv_art/cv_art.html" onclick="openPage('Vector CG art')" class="a_decoration">CG vector art</a>
+          <a href="./cv_art.html" onclick="openPage('Vector CG art')" class="a_decoration">CG vector art</a><br>
+          <a href="../cg_drawing/CG_drawing.html" onclick="openPage('CG drawing')" class="a_decoration">CG drawing</a>
+          
         
           <!-- Social Media Icons -->
           <div class="social-icons">
@@ -38,11 +39,11 @@
           </div>
         </div>
         <div id="right-column">
-            <h3>CG drawing</h3>
+            <!-- <h3>About</h3> -->
             <div id="content">
               <!-- Writing text here-->
                 <p id="mainText">
-                  <!-- The world often resembles an arena for adult politics, where individuals engage in a tumultuous exchange of conflicting ideologies and interests by throwing punches on each other. The adult participants relentlessly pursue their target goals, regardless of the consequences, leaving a trail of suffering for many living beings caught in the crossfire. Regrettably, amidst these clashes, the well-being of the most neglected element—humankind itself—hangs in the balance, vulnerable to the looming threat of mental disability.
+                <!-- The world often resembles an arena for adult politics, where individuals engage in a tumultuous exchange of conflicting ideologies and interests by throwing punches on each other. The adult participants relentlessly pursue their target goals, regardless of the consequences, leaving a trail of suffering for many living beings caught in the crossfire. Regrettably, amidst these clashes, the well-being of the most neglected element—humankind itself—hangs in the balance, vulnerable to the looming threat of mental disability.
                   <br><br>
                   <span id="additionalText">
                     The emergence of watercolor as an art form did not unfold in an instant. Rather, it evolved over time, shaped by the emotions and experiences accumulated through years of observing the struggles of Afghan children navigating the adult world. These children grapple with adversity, and hardship, facing a vivid direction and no clarity in a world fraught with challenges and uncertainties.
@@ -53,7 +54,8 @@
                 <!-- <a href="#" id="readMoreLink" style="text-decoration: none; color: #575151;">Read More</a>
                 &nbsp; &nbsp; <br> <br><a href="#" id="readLessLink" style="display: none; text-decoration: none; color: #575151;">Read Less</a> -->
               </p>
-
+              <!--Images can be add here-->
+              <img src="" alt="">
           </div>
 
           <div class="gallery">
@@ -84,10 +86,10 @@
     var galleryDots = document.getElementById('gallery-dots');
 
     var images = [];
-    for (var i = 13; i >= 0; i--) {
+    for (var i = 3; i >= 0; i--) {
         images.push({
             title: "Image " + (i + 1),
-            source: "./CG_Art_imges/CG_d_artW" + i + ".jpg",
+            source: "./cv_art_images/cv_art" + i + ".jpg",
         });
     }
 
